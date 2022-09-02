@@ -1,28 +1,40 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-app-bar app absolute color="#fff" dark>
+      <div class="d-flex align-center">
+        <span style="color: #000">IMAGE COMPARE</span>
+      </div>
+    </v-app-bar>
+    <v-main>
+      <Compare />
+      <!-- <Pagination /> -->
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Compare from "./components/Compare";
+// import Pagination from "./components/Pagination/Pagination";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    Compare,
+    // Pagination
+  },
+  data() {
+    return {
+      title: "Image Compare",
+    };
+  },
+  created() {
+    document.title = this.title;
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.v-toolbar__content, .v-toolbar__extension{
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  justify-content: center;
 }
 </style>
